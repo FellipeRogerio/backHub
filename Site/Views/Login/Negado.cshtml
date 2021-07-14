@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Negado";
+
+    Layout = "";
+
+    @Styles.Render("~/Content/css");
+
+    @Scripts.Render("~/bundles/temaBaseCSS");
+    @Scripts.Render("~/bundles/jquery");
+    @Scripts.Render("~/bundles/bootstrap");
+
+}
+@*<link href="@Url.Content("~/Content/Tema/css/bootstrap.css")" rel="stylesheet" />*@
+
+<div class="app layout-fixed-header usersession">
+    <div class="full-height">
+        <div class="center-wrapper text-center">
+            <div class="center-content">
+                <div class="error-number">
+                    <i class="fa fa-warning show"></i>
+                    <span> Access denied </span>
+                </div>
+                <div class="mb15 mt15 bold"> permission denied</div>
+                <p class="small">
+                    You are not allowed to access this page
+                    <a href=""></a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<button id="cmdAddFollowUp" class="btn btn-success" type="button" data-toggle="modal" data-backdrop="static" data-target="#subPopup">
+    <span class="icon-circle-plus " style="font-size:1.5em"></span>
+</button>
+
+<div class="modal fade text-left " id="subPopup" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>TESTE</h1>
+            </div>
+            <div class="modal-body">
+            </div>
+
+            <div class="modal-footer no-border">
+                <button class="btn closesubpop" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+

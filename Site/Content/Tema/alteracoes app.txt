@@ -1,0 +1,4 @@
+linha 10 = --fundoLogin: url('../Imagem/Login/fundo.jpg');
+linha 33055 = height: calc(100vh - 22px) !important;
+linha 33717 = min-height: calc(100vh - 105px);
+33061 = /*margin-top: 1.5rem;*/

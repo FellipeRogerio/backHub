@@ -1,0 +1,537 @@
+﻿
+@{
+    ViewBag.Title = "Conta";
+
+
+}
+<input type="hidden" class="hidden" name="inpPermissao" id="txtPermissao" value="@ViewBag.UsuarioEdita">
+<input type="hidden" class="hidden" name="inpCodigo" id="txtCodigo" value="@Model.Id">
+<input type="hidden" id="txtTemImagemNova" value="0">
+<div class="main-content">
+    <div class="content-wrapper">
+        <!---Inicio Painel-->
+        <div class="basic-elements">
+            <form class="form mb-0" name="formConta" id="formConta" method="post" accept-charset="UTF-8">
+
+                <div class="row mb-2">
+                    <div class="col-sm-12">
+                        <div class="content-header">@ViewBag.Title</div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-9">
+                        <div class="card mt-0 mb-1">
+                            <div class="card-content">
+                                <div class="card-body pt-2 pb-2">
+                                    <div class="form-body">
+
+                                        <div class="row justify-content-end">
+
+                                            <!-- #region STATUS -->
+                                            <div class="col-auto">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="chkAtivo" name="chkAtivo">
+                                                    <label class="custom-control-label" for="chkAtivo">
+                                                        Ativo
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                        </div>
+                                        <div class="row">
+                                            <!-- #region DESCRIÇÃO -->
+                                            <div class="col-sm-10">
+                                                <div class="form-group mb-2">
+                                                    <label for="txtDescricao">Descrição</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+
+                                                        <input id="txtDescricao" name="txtDescricao" minlength="2" maxlength="250" type="text" placeholder="" class="form-control" required>
+                                                        <div class="form-control-position ">
+                                                            <i class="fas fa-hotel"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                            <!-- #region Nº Banco -->
+                                            <div class="col-sm-2">
+
+                                                <div class="form-group mb-2">
+                                                    <label for="txtNumBanco">Nº Banco</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+
+                                                        <input id="txtNumBanco" name="txtNumBanco" type="text" placeholder="" class="form-control" required>
+                                                        <div class="form-control-position ">
+                                                            <i class="fa fa-infinity"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                        </div>
+                                        <div class="row">
+                                            <!-- #region FAVORECIDO -->
+                                            <div class="col-sm-6">
+                                                <div class="form-group mb-2">
+                                                    <label for="txtFavorecido">Favorecido</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+
+                                                        <input id="txtFavorecido" name="txtFavorecido" minlength="2" maxlength="250" type="text" placeholder="" class="form-control" required>
+                                                        <div class="form-control-position ">
+                                                            <i class="fas fa-hotel"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                            <!-- #region CNPJ/CPF FAVORECIDO -->
+                                            <div class="col-sm-6">
+                                                <div class="form-group mb-2">
+                                                    <label for="txtCNPJCPFFavorecido">CNPJ/CPF Favorecido</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+
+                                                        <input id="txtCNPJCPFFavorecido" name="txtCNPJCPFFavorecido" type="text" placeholder="" class="form-control" required>
+                                                        <div class="form-control-position ">
+                                                            <i class="fas fa-hotel"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                        </div>
+
+                                        <div class="row">
+                                            <!-- #region NOME AGÊNCIA -->
+                                            <div class="col-sm-6">
+                                                <div class="form-group mb-2">
+                                                    <label for="txtNomeAgencia">Nome Agência</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+
+                                                        <input id="txtNomeAgencia" name="txtNomeAgencia" minlength="2" maxlength="250" type="text" placeholder="" class="form-control" required>
+                                                        <div class="form-control-position ">
+                                                            <i class="fas fa-hotel"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                            <!-- #region Nº Agência -->
+                                            <div class="col-sm-4">
+
+                                                <div class="form-group">
+                                                    <label for="txtNumAgencia">Nº Agência</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+
+                                                        <input id="txtNumAgencia" name="txtNumAgencia" type="text" placeholder="" class="form-control" required>
+                                                        <div class="form-control-position ">
+                                                            <i class="far fa-building"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                            <!-- #region Digito Agência -->
+                                            <div class="col-sm-2">
+
+                                                <div class="form-group">
+                                                    <label for="txtDigitoAgencia">Digito</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+
+                                                        <input id="txtDigitoAgencia" name="txtDigitoAgencia" type="text" placeholder="" class="form-control" required>
+                                                        <div class="form-control-position ">
+                                                            <i class="far fa-building"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                        </div>
+                                        <div class="row">
+                                            <!-- #region Nº Conta -->
+                                            <div class="col-sm-4">
+
+                                                <div class="form-group">
+                                                    <label for="txtNumConta">Nº Conta</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+
+                                                        <input id="txtNumConta" name="txtNumConta" type="text" placeholder="" class="form-control" required>
+                                                        <div class="form-control-position ">
+                                                            <i class="far fa-building"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                            <!-- #region Digito Conta -->
+                                            <div class="col-sm-2">
+
+                                                <div class="form-group">
+                                                    <label for="txtDigitoConta">Digito</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+
+                                                        <input id="txtDigitoConta" name="txtDigitoConta" type="text" placeholder="" class="form-control" required>
+                                                        <div class="form-control-position ">
+                                                            <i class="far fa-building"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                            <!-- #region Tipo Conta -->
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group mb-2">
+                                                    <label for="cmbTConta">Tipo Conta</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+                                                        <select id="cmbTConta" class="form-control ComboEditavel" required></select>
+                                                        <div class="form-control-position ">
+                                                            <i class="icon-paper-plane"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                        </div>
+
+                                        <div class="row">
+                                            <!-- #region Data Abertura -->
+                                            <div class="col-sm-3">
+
+                                                <div class="form-group mb-2">
+                                                    <label for="txtDataAbertura">Data Abertura</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+
+                                                        <input id="txtDataAbertura" name="txtDataAbertura" type="text" placeholder="" class="form-control" data-provide="datepicker">
+                                                        <div class="form-control-position ">
+                                                            <i class="icon-calendar"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                            <!-- #region Saldo Inicial -->
+                                            <div class="col-sm-3">
+
+                                                <div class="form-group mb-2">
+                                                    <label for="txtSaldoInicial">Saldo Inicial</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+
+                                                        <input id="txtSaldoInicial" name="txtSaldoInicial" type="text" placeholder="" class="form-control" required>
+                                                        <div class="form-control-position ">
+                                                            <i class="fa fa-dollar-sign"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                            <!-- #region Data Inicio Saldo -->
+                                            <div class="col-sm-3">
+
+                                                <div class="form-group mb-2">
+                                                    <label for="txtDataInicioSaldo">Data Inicio Saldo</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+
+                                                        <input id="txtDataInicioSaldo" name="txtDataInicioSaldo" type="text" placeholder="" class="form-control" data-provide="datepicker">
+                                                        <div class="form-control-position ">
+                                                            <i class="icon-calendar"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                            <!-- #region Data Encerramento -->
+                                            <div class="col-sm-3">
+
+                                                <div class="form-group mb-2">
+                                                    <label for="txtDataEncerramento">Data Encerramento</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+
+                                                        <input id="txtDataEncerramento" name="txtDataEncerramento" type="text" placeholder="" class="form-control" data-provide="datepicker">
+                                                        <div class="form-control-position ">
+                                                            <i class="icon-calendar"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!---/Pesquisar------>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-9">
+                        <div class="card mt-0 mb-1">
+                            <div class="card-content">
+                                <div class="card-body pt-2 pb-2">
+                                    <div class="form-body">
+
+                                        <div class="row">
+                                            <!-- #region ENDEREÇO -->
+
+                                            <div class="col-sm-8">
+                                                <div class="form-group mb-2">
+                                                    <label for="txtEndereco">Endereço</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+                                                        <input id="txtEndereco" name="txtEndereco" type="text" placeholder="" class="form-control" required>
+                                                        <div class="form-control-position ">
+                                                            <i class="icon-home"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                            <!-- #region Número -->
+                                            <div class="col-sm-4">
+                                                <div class="form-group mb-2">
+                                                    <label for="txtNumero">Número</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+                                                        <input id="txtNumero" name="txtNumero" type="text" placeholder="" class="form-control" required>
+                                                        <div class="form-control-position ">
+                                                            <i class="icon-home"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                        </div>
+                                        <div class="row">
+                                            <!-- #region COMPLEMENTO -->
+                                            <div class="col-sm-12">
+                                                <div class="form-group mb-2">
+                                                    <label for="txtComplemento">Complemento</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+                                                        <input id="txtComplemento" name="txtComplemento" type="text" placeholder="" class="form-control">
+                                                        <div class="form-control-position ">
+                                                            <i class="icon-home"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+
+                                        </div>
+
+                                        <div class="row">
+                                            <!-- #region ESTADO -->
+                                            <div class="col-sm-4">
+                                                <div class="form-group mb-2">
+                                                    <label for="cmbEstado">Estado</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+                                                        <select id="cmbEstado" class="form-control ComboEditavel" required></select>
+                                                        <div class="form-control-position ">
+                                                            <i class="icon-paper-plane"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                            <!-- #region Cidade -->
+                                            <div class="col-sm-8">
+                                                <div class="form-group mb-2">
+                                                    <label for="cmbCidade">Cidade</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+                                                        <select id="cmbCidade" class="form-control ComboEditavel" required>
+                                                            <option value="0">Vazio</option>
+                                                        </select>
+                                                        <div class="form-control-position ">
+                                                            <i class="icon-pointer"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                        </div>
+
+                                        <div class="row">
+                                            <!-- #region BAIRRO -->
+                                            <div class="col-sm-8">
+                                                <div class="form-group mb-2">
+                                                    <label for="txtBairro">Bairro</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+                                                        <input id="txtBairro" name="txtBairro" type="text" placeholder="" class="form-control" required>
+                                                        <div class="form-control-position ">
+                                                            <i class="icon-direction"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                            <!-- #region CEP -->
+                                            <div class="col-sm-4">
+                                                <div class="form-group mb-2">
+                                                    <label for="txtCEP">CEP</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+                                                        <input id="txtCEP" name="txtCEP" type="text" placeholder="" class="form-control" required>
+                                                        <div class="form-control-position ">
+                                                            <i class="icon-pin"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-9">
+                        <div class="card mt-0 mb-1">
+                            <div class="card-content">
+                                <div class="card-body pt-2 pb-2">
+
+                                    <div class="form-body">
+
+                                        <div class="row">
+                                            <!-- #region Observação -->
+                                            <div class="col-sm-12">
+                                                <div class="form-group mb-2">
+                                                    <label for="txtObs">Observação</label>
+                                                    <div class="controls mb-1 position-relative has-icon-left ">
+                                                        <textarea class="form-control" id="txtObs" name="txtObs" rows="3"></textarea>
+                                                        <div class="form-control-position ">
+                                                            <i class="fas fa-hotel"></i>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #endregion -->
+                                        </div>
+
+                                        <!---Botao-->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="linhaContato" class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="card mt-0 mb-1">
+                            <div class="card-content">
+                                <div class="card-body pt-2 pb-2">
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <!--Btn add Modal-->
+                                                <button type="button" id="cmdAddContato" class="btnModal btn btn-raised btn-outline-info mr-1">
+                                                    <span class="ft-plus"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <table id="tbContatos" class="table table-bordered"></table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="card mt-0 mb-1">
+                            <div class="card-content">
+                                <div class="card-body pt-2 pb-2">
+                                    <div class="form-body">
+                                        <!-- #region BOTÔES -->
+                                        <div class="row" style=" float:right">
+                                            <div class="col-sm-12">
+                                                <button id="cmdSalvar" type="button" class="btn btn-raised btn-outline-success mb-1">
+                                                    <span class="ft-save" style="font-size:1.8em;"></span>
+                                                </button>
+                                                <button id="btnSair" type="button" class="btn btn-raised btn-outline-danger mb-1">
+                                                    <span class="fa fa-sign-out-alt" style="font-size:1.8em;"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- #endregion -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section css{
+    @*<link href="@Url.Content("~/Content/Componentes/datatables/dataTables.bootstrap4.css")" rel="stylesheet" />*@
+    <link href="@Url.Content("~/Content/Componentes/Dropzone/dropzone.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Componentes/Datepicker/bootstrap-datepicker3.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Componentes/datatables/dataTables.bootstrap4.css")" rel="stylesheet" />
+}
+
+@section scripts{
+
+    <script src="@Url.Content("~/Scripts/Componentes/datatables/datatables.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Componentes/datatables/sorting/custom-data-source/doms.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Componentes/datatables/dataTables.responsive.min.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/Componentes/DatePicker/bootstrap-datepicker.js")" type="text/javascript" charset="utf-8"></script>
+    <script src="@Url.Content("~/Scripts/Componentes/Validation/jqBootstrapValidation.js")" type="text/javascript" charset="utf-8"></script>
+    <script src="@Url.Content("~/Scripts/Componentes/Dropzone/dropzone.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Componentes/Mask/inputmask/inputmask.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Componentes/Mask/inputmask/jquery.inputmask.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Componentes/Mask/inputmask/inputmask.numeric.extensions.js")" type="text/javascript"></script>
+
+
+    <script src="@Url.Content("~/Scripts/Tela/Geral/Utilitario.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Tela/Cadastro/Financeiro/Conta/CadastroConta.js")" type="text/javascript"></script>
+    @*<script src="@Url.Content("~/Scripts/Tela/Geral/Telas/Contato.js")" type="text/javascript"></script>*@
+
+
+    <script>
+        //DESATIVAR A ATIVAÇÃO DO COMPONENTE AO ABRIR A TELA - NECESSÁRIO PARA SETAR A CONFIGURAÇÃO CUSTOMIZADA NO .JS DA TELA
+        Dropzone.autoDiscover = false;
+
+        //var root = "http://@HttpContext.Current.Request.Url.Authority";
+        var model = @Html.Raw(Json.Encode(Model));
+    </script>
+
+}
+
+
+
+

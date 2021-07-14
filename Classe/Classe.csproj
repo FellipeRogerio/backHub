@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2C01AC85-EE74-4013-B33A-96C7C996D990}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Classe</RootNamespace>
+    <AssemblyName>Classe</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Excelencia.API.Classe">
+      <HintPath>\\12.191.1.1\Departamento\Desenvolvimento\ESComponentes\Excelencia\Camadas\FW 4.7.2\Excelencia.API.Classe.dll</HintPath>
+    </Reference>
+    <Reference Include="Excelencia.Camada.Integracao">
+      <HintPath>\\12.191.1.1\Departamento\Desenvolvimento\ESComponentes\Excelencia\Integracao\Excelencia\Camada\FW 4.7.2\Excelencia.Camada.Integracao.dll</HintPath>
+    </Reference>
+    <Reference Include="Excelencia.Extensions">
+      <HintPath>\\12.191.1.1\Departamento\Desenvolvimento\ESComponentes\Excelencia\Extensions\4.7.2\Excelencia.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\ClsBase.cs" />
+    <Compile Include="Cadastro\Adm\Cliente\ClsCliente.cs" />
+    <Compile Include="Cadastro\Adm\Empresa\ClsEmpresa.cs" />
+    <Compile Include="Cadastro\Configuracao\ClsConfiguracao.cs" />
+    <Compile Include="Cadastro\Configuracao\ClsEmail.cs" />
+    <Compile Include="Cadastro\Faturamento\ClsNCM.cs" />
+    <Compile Include="Cadastro\Financeiro\ClsCondicaoPgto.cs" />
+    <Compile Include="Cadastro\Financeiro\ClsConta.cs" />
+    <Compile Include="Cadastro\Financeiro\ClsFormaPgto.cs" />
+    <Compile Include="Cadastro\Financeiro\ClsTipoDocumento.cs" />
+    <Compile Include="Cadastro\Geral\ClsContato.cs" />
+    <Compile Include="Cadastro\Geral\Modelo\Enum.cs" />
+    <Compile Include="Cadastro\Geral\Modelo\Model.cs" />
+    <Compile Include="Cadastro\Usuario\ClsGrupoUsuario.cs" />
+    <Compile Include="Cadastro\Usuario\ClsUsuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

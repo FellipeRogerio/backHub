@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8453ED31-FCAB-4F77-8A28-392C71F42910}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Negocio</RootNamespace>
+    <AssemblyName>Negocio</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Excelencia.API.Classe">
+      <HintPath>\\12.191.1.1\Departamento\Desenvolvimento\ESComponentes\Excelencia\Camadas\FW 4.7.2\Excelencia.API.Classe.dll</HintPath>
+    </Reference>
+    <Reference Include="Excelencia.API.Dados">
+      <HintPath>\\12.191.1.1\Departamento\Desenvolvimento\ESComponentes\Excelencia\Camadas\FW 4.7.2\Excelencia.API.Dados.dll</HintPath>
+    </Reference>
+    <Reference Include="Excelencia.API.Funcoes">
+      <HintPath>\\12.191.1.1\Departamento\Desenvolvimento\ESComponentes\Excelencia\ClasseExcelencia\FW 4.7.2\Excelencia.API.Funcoes.dll</HintPath>
+    </Reference>
+    <Reference Include="Excelencia.API.Negocio">
+      <HintPath>\\12.191.1.1\Departamento\Desenvolvimento\ESComponentes\Excelencia\Camadas\FW 4.7.2\Excelencia.API.Negocio.dll</HintPath>
+    </Reference>
+    <Reference Include="Excelencia.BancoDados">
+      <HintPath>\\12.191.1.1\Departamento\Desenvolvimento\ESComponentes\Excelencia\AcessoBancoDados\FW 4.7.2\Excelencia.BancoDados.dll</HintPath>
+    </Reference>
+    <Reference Include="Excelencia.Camada.Integracao">
+      <HintPath>\\12.191.1.1\Departamento\Desenvolvimento\ESComponentes\Excelencia\Integracao\Excelencia\Camada\FW 4.7.2\Excelencia.Camada.Integracao.dll</HintPath>
+    </Reference>
+    <Reference Include="Excelencia.Extensions">
+      <HintPath>\\12.191.1.1\Departamento\Desenvolvimento\ESComponentes\Excelencia\Extensions\4.7.2\Excelencia.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Excelencia.Token">
+      <HintPath>\\12.191.1.1\Departamento\Desenvolvimento\ESComponentes\Excelencia\Token\FW 4.7.2\Excelencia.Token.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.22.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>J:\Desenvolvimento\ESComponentes\Excelencia\AcessoBancoDados\FW 4.7.2\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\ClsPropriedade.cs" />
+    <Compile Include="Base\Utilitario.cs" />
+    <Compile Include="Cadastro\Usuario\NegGrupoUsuario.cs" />
+    <Compile Include="Cadastro\Usuario\NegUsuario.cs" />
+    <Compile Include="Configuracao\NegConfiguracao.cs" />
+    <Compile Include="Configuracao\NegSmptEmail.cs" />
+    <Compile Include="Geral\Email\NegEmail.cs" />
+    <Compile Include="Geral\Territorio\NegCidade.cs" />
+    <Compile Include="Geral\Territorio\NegEstado.cs" />
+    <Compile Include="Geral\Territorio\NegPais.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Classe\Classe.csproj">
+      <Project>{2c01ac85-ee74-4013-b33a-96c7c996d990}</Project>
+      <Name>Classe</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dados\Dados.csproj">
+      <Project>{fcc6aad9-0f9e-4cd8-b32f-979b2709784c}</Project>
+      <Name>Dados</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,110 @@
+﻿@model Site.Controllers.PadraoController.ClsMenu
+@{
+    Layout = null;
+    if (Model != null)
+    {
+
+
+
+<ul id="main-menu-navigation" data-menu="menu-navigation" data-scroll-to-active="true" class="navigation navigation-main">
+    @{
+
+        var obj = Model.ListaGrupos.Find(x => x.Principal);
+    }
+    @foreach (var item in (Model as Site.Controllers.PadraoController.ClsMenu).ListaGrupos)
+    {
+
+
+        if (item.Principal)
+        {
+            <li class="@(item.Descricao == @Model.TelaAtual ? "active" : "nav-item" )" >
+
+                <a href="@Url.Action("Index", "Home")"><i class="ft-home"></i> <span data-i18n="" class="menu-title">@item.Descricao</span></a>
+            </li>
+
+        }
+
+        else
+        {
+            if (item.Telas.Count == 0)
+            {
+                if (item.GrupoTelas.FindAll(x => x.Telas.Count > 0).Count == 0)
+                {
+                    continue;
+                }
+
+            }
+            <li class="has-sub nav-item">
+
+                <a href="#">
+                    <i class="@item.iconeCSS"></i>
+                    <span data-i18n="" class="menu-title">@item.Descricao</span>
+                    @* OPÇÃO ABAIXO É UM EXEMPLO DE COMO INSERIR NO MENU QTD DE AVISO/PENDÊNCIA DO MENU
+                        <span class="tag badge badge-pill badge-danger float-right mr-1 mt-1">2</span>
+                    *@
+                </a>
+                <ul class="menu-content">
+                    @foreach (var tela in item.Telas.OrderBy(x => x.Descricao))
+                    {
+                        <li class="@(tela.Descricao == @Model.TelaAtual ? "active" : "nav-item" )">
+                            <a href="@Url.Action(tela.NomeActionPrincipal, tela.Controller)" class="menu-item">
+                                <i class="@tela.iconeCSS"></i> @tela.Descricao
+                            </a>
+                        </li>
+                    }
+
+                    @foreach (var grup in item.GrupoTelas)
+                    {
+                        if (grup.Telas.Count == 0)
+                        {
+                            break;
+                        }
+                        <li class="@(item.Descricao == @Model.TelaAtual ? "active" : "nav-item" )">
+                            <a href="#">
+                                <i class="@grup.iconeCSS"></i>
+                                <span data-i18n="" class="menu-title">@item.Descricao</span>
+                                @* OPÇÃO ABAIXO É UM EXEMPLO DE COMO INSERIR NO MENU QTD DE AVISO/PENDÊNCIA DO MENU
+                                    <span class="tag badge badge-pill badge-danger float-right mr-1 mt-1">2</span>
+                                *@
+                            </a>
+                            <ul class="menu-content">
+                                @foreach (var tela in grup.Telas)
+                                {
+                                    <li>
+                                        <a href="@Url.Action(tela.NomeActionPrincipal, tela.Controller)" class="menu-item">
+                                            <i class="@tela.iconeCSS"></i> @tela.Descricao
+                                        </a>
+                                    </li>
+
+                                }
+                            </ul>
+                        </li>
+                    }
+
+                </ul>
+
+            </li>
+
+        }
+
+
+
+
+
+
+    }
+
+
+    @foreach (var tela in obj.Telas)
+    {
+        <li class="@(tela.Descricao == @Model.TelaAtual ? "active" : "nav-item" )">
+            <a href="@Url.Action(tela.NomeActionPrincipal, tela.Controller)">
+                <i class="@tela.iconeCSS"></i>
+                <span data-i18n="" class="menu-title">@tela.Descricao</span>
+            </a>
+        </li>
+    }
+
+</ul>
+    }
+}

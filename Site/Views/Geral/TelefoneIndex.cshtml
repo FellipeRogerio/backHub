@@ -1,0 +1,177 @@
+﻿@{
+    ViewBag.Title = (Model.IdLinha > 0 ? "Alterar" : "Cadastrar") + " - Telefone";
+
+    Layout = "";
+    <link rel="stylesheet" type="text/css" href="~/Content/Fontes/feather/css/feather.css">
+
+
+    @Styles.Render("~/Content/css");
+    @Styles.Render("~/Content/temaBaseCSS");
+
+
+
+
+}
+<input type="hidden" class="hidden" name="inpTelIdLinha" id="txtTelIdLinha" value="@Model.IdLinha">
+<input type="hidden" class="hidden" name="inpTelCodigo" id="txtTelCodigo" value="@Model.Telefone.Id">
+<input type="hidden" class="hidden" name="inpTelTipoCad" id="txtTelTipoOrigem" value="@Model.ControllerOrigem">
+<input type="hidden" class="hidden" name="inpTelIdCad" id="txtTelIdOrigem" value="@Model.IdOrigem">
+
+<div id="idPrincipal" class="main-panel " style=" height:100%;overflow-y:auto">
+
+    <div class="content-wrapper pl-1 pr-1" style=" height:100%; padding-left:10px!important; padding-right:15px!important">
+        <div class="basic-elements">
+            <form class="form mb-0" name="formTel" id="formTel" method="post">
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-12">
+                        <div class="card mb-0 mt-0">
+
+                            <div class="form-body">
+                                <h4 class="form-section"><i class="fas fa-users"></i> @ViewBag.Title</h4>
+                                <div class="row justify-content-end">
+
+                                    <!-- #region STATUS -->
+                                    <div class="col-auto">
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="chkTelAtivo" name="chkTelAtivo">
+                                            <label class="custom-control-label" for="chkTelAtivo">
+                                                Ativo
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!-- #endregion -->
+                                </div>
+                                <div class="row">
+                                    <!-- #region Nome -->
+                                    <div class="col-sm-6">
+                                        <div class="form-group mb-2">
+                                            <label for="txtTelPrincipal">Principal</label>
+                                            <div class="controls mb-1 position-relative has-icon-left ">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="chkTelPrincipal" name="chkTelPrincipal">
+                                                    <label class="custom-control-label" for="chkTelPrincipal"></label>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- #endregion -->
+                                    <!-- #region Tipo -->
+                                    <div class="col-sm-6">
+                                        <div class="form-group mb-2">
+                                            <label for="cmbTelTipo">Tipo</label>
+                                            <div class="controls mb-1 position-relative has-icon-left ">
+                                                <select id="cmbTelTipo" class="form-control ComboEditavel" required></select>
+                                                <div class="form-control-position ">
+                                                    <i class="icon-paper-plane"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- #endregion -->
+
+
+                                </div>
+                                <div class="row">
+                                    <!-- #region Telefone -->
+                                    <div class="col-sm-6">
+                                        <div class="form-group mb-2">
+                                            <label for="txtTelTelefone">Telefone</label>
+                                            <div class="controls mb-1 position-relative has-icon-left ">
+
+                                                <input id="txtTelTelefone" name="txtTelTelefone" type="text" class="form-control" required>
+                                                <div class="form-control-position ">
+                                                    <i class="fas fa-hotel"></i>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- #endregion -->
+                                    <!-- #region Ramal -->
+                                    <div class="col-sm-6">
+                                        <div class="form-group mb-2">
+                                            <label for="txtTelRamal">Ramal</label>
+                                            <div class="controls mb-1 position-relative has-icon-left ">
+
+                                                <input id="txtTelRamal" name="txtTelRamal" type="number" class="form-control">
+                                                <div class="form-control-position ">
+                                                    <i class="fas fa-hotel"></i>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- #endregion -->
+                                </div>
+
+                                <!---Botao-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </form>
+
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="card mb-1">
+                        <div class="card-content">
+                            <div class="card-body pt-2 pb-2">
+                                <div class="form-body">
+                                    <div class="row" style=" float:right">
+                                        <div class="col-sm-12">
+                                            <button id="cmdSalvarTel" type="button" class="btn btn-raised btn-outline-success mb-1">
+                                                <span class="ft-save" style="font-size:1.8em;"></span>
+                                            </button>
+                                            <button id="btnSairTel" type="button" class="btn btn-raised btn-outline-danger mb-1">
+                                                <span class="fa fa-sign-out-alt" style="font-size:1.8em;"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+@{
+
+
+    @*@Scripts.Render("~/bundles/temaBaseJS")*@
+
+    @*<script src="@Url.Content("~/Scripts/Componentes/Validation/jqBootstrapValidation.js")" type="text/javascript" charset="utf-8"></script>
+        <script src="@Url.Content("~/Scripts/Componentes/Modal/TelaModal.js")" type="text/javascript"></script>
+
+        <script src="@Url.Content("~/Scripts/Tela/Geral/Utilitario.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/Tela/Geral/Extensao.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/Tela/Geral/Componente.js")" type="text/javascript"></script>*@
+
+
+    <script src="@Url.Content("~/Scripts/Tela/Geral/Telas/Telefone.js")" type="text/javascript"></script>
+
+    <script>
+        root = "http://@HttpContext.Current.Request.Url.Authority" ;
+        var model = @Html.Raw(Json.Encode(Model));
+
+    </script>
+
+}
+
+
